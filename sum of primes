@@ -1,0 +1,17 @@
+import math
+query=int(input())
+for i in range(query):
+    a,b=map(int,input().split())
+    seive=[True]*b
+    seive[0]=seive[1]=False
+    x=int(math.sqrt(b))+1
+    for i in range(2,x):
+        if seive[i]:
+            for i in range(i*i,b,i):
+                seive[i]=False
+    p=[]
+    for i in range(b):
+        if seive[i]:
+            p.append(i)
+    t=sum(p)
+    print(t)
